@@ -5,6 +5,10 @@ feature {ANY}
       deferred
       end
 
+   next_state
+      deferred
+      end
+
 feature {ANY} -- cf. ARRAY2
    line_count: INTEGER_32
       deferred

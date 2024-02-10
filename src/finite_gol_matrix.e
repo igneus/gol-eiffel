@@ -8,35 +8,85 @@ create {ANY}
    make
 
 feature {}
-   internal: ARRAY2[BOOLEAN]
+   internal: ARRAY[ARRAY2[BOOLEAN]]
 
 feature {ANY} -- Creation
    make (lines, columns: INTEGER_32)
+      local
+         m: ARRAY2[BOOLEAN]
+         i: INTEGER
       do
-         create internal.make(1, lines, 1, columns)
-         internal.set_all_with(False)
+         create internal.make(1, 2)
+
+         from
+            i := 1
+         until
+            i > 2
+         loop
+            create m.make(1, lines, 1, columns)
+            m.set_all_with(False)
+            internal.put(m, i)
+            i := i + 1
+         end
+      end
+
+   next_state
+      local
+         line, col: INTEGER
+      do
+         from
+            line := 1
+         until
+            line >= next.line_count
+         loop
+            from
+               col := 1
+            until
+               col >= next.column_count
+            loop
+               -- fake
+               next.put(not is_live(line, col), line, col)
+
+               col := col + 1
+            end
+
+            line := line + 1
+         end
+
+         internal.reverse
       end
 
 feature {ANY}
    is_live(line, column: INTEGER_32): BOOLEAN
       do
-         Result := internal.item(line, column)
+         Result := curr.item(line, column)
       end
 
 feature {ANY} -- cf. ARRAY2
    line_count: INTEGER_32
       do
-         Result := internal.line_count
+         Result := curr.line_count
       end
 
    column_count: INTEGER_32
       do
-         Result := internal.column_count
+         Result := curr.column_count
       end
 
    put(element: BOOLEAN; line, column: INTEGER_32)
       do
-         internal.put(element, line, column)
+         curr.put(element, line, column)
+      end
+
+feature {}
+   curr: ARRAY2[BOOLEAN]
+      do
+         Result := internal.item(1)
+      end
+
+   next: ARRAY2[BOOLEAN]
+      do
+         Result := internal.item(2)
       end
 
 end

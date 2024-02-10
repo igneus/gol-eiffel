@@ -7,6 +7,8 @@ feature {}
    matrix: GOL_MATRIX
 
    make
+      local
+         i: INTEGER
       do
          create {FINITE_GOL_MATRIX} matrix.make(10, 10)
 
@@ -16,9 +18,17 @@ feature {}
          matrix.put(True, 4, 5)
          matrix.put(True, 5, 4)
 
-         print_matrix
-         io.put_new_line
-         print_matrix
+         from
+            i := 0
+         until
+            i >= 10
+         loop
+            print_matrix
+            io.put_new_line
+
+            matrix.next_state
+            i := i + 1
+         end
       end
 
    print_matrix
