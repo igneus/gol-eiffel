@@ -1,0 +1,16 @@
+system
+  "gol"
+
+root
+  GOL_CLI: make
+
+default
+  assertion (all)
+  collect (yes)
+
+cluster
+  "./src"
+  "${path_liberty_core}/loadpath.se"
+
+generate
+  clean(yes);
