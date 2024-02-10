@@ -12,17 +12,20 @@ feature {}
       do
          create {FINITE_GOL_MATRIX} matrix.make(10, 10)
 
-         matrix.put(True, 3, 3)
-         matrix.put(True, 3, 4)
-         matrix.put(True, 3, 5)
-         matrix.put(True, 4, 5)
-         matrix.put(True, 5, 4)
+         matrix.put(True, 7, 1)
+         matrix.put(True, 7, 2)
+         matrix.put(True, 7, 3)
+         matrix.put(True, 8, 3)
+         matrix.put(True, 9, 2)
 
          from
             i := 0
          until
-            i >= 10
+            i >= 30
          loop
+            io.put_integer(i)
+            io.put_new_line
+
             print_matrix
             io.put_new_line
 
