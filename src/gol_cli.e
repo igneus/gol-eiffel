@@ -1,11 +1,12 @@
 class GOL_CLI
 
-create {}
+create {ANY}
    make
 
 feature {}
    matrix: GOL_MATRIX
 
+feature {ANY}
    make
       local
          i: INTEGER
@@ -34,6 +35,7 @@ feature {}
          end
       end
 
+feature {}
    print_matrix
       local
          line, col: INTEGER
