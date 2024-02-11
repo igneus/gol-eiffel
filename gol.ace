@@ -6,7 +6,7 @@ root
 
 default
   assertion (all)
-  collect (yes)
+  collect (no)
 
 cluster
   "./src"
