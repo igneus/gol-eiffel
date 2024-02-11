@@ -41,12 +41,12 @@ feature {}
          from
             line := 1
          until
-            line >= matrix.line_count
+            line > matrix.line_count
          loop
             from
                col := 1
             until
-               col >= matrix.column_count
+               col > matrix.column_count
             loop
                if matrix.is_live(line, col) then
                   io.put_character('X')
