@@ -35,7 +35,7 @@ the program. `gol.ecf` is the relevant EiffelStudio project file.)
 
 ```
 $ make with_gobo
-$ ./gol
+$ ./gol_gobo
 ```
 
 [gol]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

@@ -13,7 +13,7 @@ with_ise:
 
 with_gobo:
 	gec gol_gobo.ecf
-	./gol.sh
+	./gol_gobo.sh
 
 # Tests
 
