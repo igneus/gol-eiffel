@@ -8,26 +8,18 @@ create {ANY}
    make
 
 feature {}
-   internal: ARRAY[ARRAY2[BOOLEAN]]
+   internal: REVERSIBLE_PAIR[MY_ARRAY2[BOOLEAN]]
 
 feature {ANY} -- Creation
    make (lines, columns: INTEGER_32)
       local
-         m: ARRAY2[BOOLEAN]
-         i: INTEGER
+         m, n: MY_ARRAY2[BOOLEAN]
       do
-         create internal.make(1, 2)
-
-         from
-            i := 1
-         until
-            i > 2
-         loop
-            create m.make(1, lines, 1, columns)
-            m.set_all_with(False)
-            internal.put(m, i)
-            i := i + 1
-         end
+         create m.my_make(lines, columns)
+         m.set_all_with(False)
+         create n.my_make(lines, columns)
+         n.set_all_with(False)
+         create internal.make(m, n)
       end
 
    next_state
@@ -105,14 +97,14 @@ feature {ANY} -- cf. ARRAY2
       end
 
 feature {}
-   curr: ARRAY2[BOOLEAN]
+   curr: MY_ARRAY2[BOOLEAN]
       do
-         Result := internal.item(1)
+         Result := internal.first
       end
 
-   next: ARRAY2[BOOLEAN]
+   next: MY_ARRAY2[BOOLEAN]
       do
-         Result := internal.item(2)
+         Result := internal.second
       end
 
    live_neighbors_count(line, column: INTEGER_32): INTEGER_32
