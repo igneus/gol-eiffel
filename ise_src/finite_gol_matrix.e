@@ -15,6 +15,8 @@ feature {ANY} -- Creation
 
          create next.make(lines, columns)
          next.fill_with(False)
+
+         auxiliary := curr -- value not used, assigned just in order to appease the compiler
       end
 
    next_state
@@ -109,7 +111,7 @@ feature {}
          loop
             -- looks like Eiffel doesn't have an instruction
             -- equivalent to the C-like "continue"
-            if l >= 0 and l < curr.height then
+            if l >= 1 and l < curr.height then
                from
                   c := column - 1
                until
@@ -124,7 +126,7 @@ feature {}
                   -- when c is not valid
                   -- and we really have to write the two nested
                   -- conditionals.
-                  if c >= 0 and c < curr.width and not (l = line and c = column) then
+                  if c >= 1 and c < curr.width and not (l = line and c = column) then
                      if is_live(l, c) then
                         r := r + 1
                      end
