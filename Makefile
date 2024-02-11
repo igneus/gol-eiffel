@@ -17,11 +17,5 @@ with_gobo:
 
 # Tests
 
-test: test_clean
-	se test .
-
-test_fast: test_clean
-	se test -boost .
-
-test_clean:
-	rm -f */eiffeltest/LOCK
+test:
+	getest getest.conf

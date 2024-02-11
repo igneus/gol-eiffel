@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+Based on gol_gobo.ecf, modified according to the specification in
+http://www.gobosoft.com/eiffel/gobo/getest/configuration.html
+
+Normally this configuration will be used only via the getest utility.
+-->
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-20-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-20-0 http://www.eiffel.com/developers/xml/configuration-1-20-0.xsd" name="gol_test_suite">
+  <target name="gol_test_suite">
+    <root class="GOL_TEST_SUITE" feature="make"/>
+    <option warning="true" manifest_array_type="mismatch_warning">
+      <assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
+    </option>
+    <setting name="console_application" value="true"/>
+    <setting name="dead_code_removal" value="feature"/>
+    <capability>
+      <concurrency support="none"/>
+      <void_safety use="all"/>
+    </capability>
+    <library name="base" location="$GOBO\library\free_elks\library.ecf"/>
+
+    <!-- recursive="false" , because otherwise there's a name clash between classes in subdirectories -->
+    <cluster name="gobo_test_harness" location="$GOBO\library\test\src\harness" recursive="false"/>
+
+    <cluster name="gobo_container" location="$GOBO\library\structure\src\container" recursive="true"/>
+    <cluster name="gobo_dispenser" location="$GOBO\library\structure\src\dispenser" recursive="true"/>
+    <cluster name="gobo_list" location="$GOBO\library\structure\src\list" recursive="true"/>
+    <cluster name="gobo_set" location="$GOBO\library\structure\src\set" recursive="true"/>
+    <cluster name="gobo_sort" location="$GOBO\library\structure\src\sort" recursive="true"/>
+    <cluster name="gobo_support" location="$GOBO\library\structure\src\support" recursive="true"/>
+    <cluster name="gobo_table" location="$GOBO\library\structure\src\table" recursive="true"/>
+
+    <!-- Clusters commented out are listed in the documentation
+         http://www.gobosoft.com/eiffel/gobo/getest/stages.html
+         but never more available in Gobo 22.01 -->
+    <!-- <cluster name="gobo_command" location="$GOBO\library\utility\src\command" recursive="true"/> -->
+    <cluster name="gobo_error" location="$GOBO\library\utility\src\error" recursive="true"/>
+    <cluster name="gobo_formatter" location="$GOBO\library\utility\src\formatter" recursive="true"/>
+    <cluster name="gobo_support" location="$GOBO\library\utility\src\support" recursive="true"/>
+
+    <cluster name="gobo_basic" location="$GOBO\library\kernel\src\basic" recursive="true"/>
+    <!-- <cluster name="gobo_elks" location="$GOBO\library\kernel\src\elks" recursive="true"/> -->
+    <cluster name="gobo_io" location="$GOBO\library\kernel\src\io" recursive="true"/>
+    <cluster name="gobo_misc" location="$GOBO\library\kernel\src\misc" recursive="true"/>
+    <cluster name="gobo_unicode" location="$GOBO\library\kernel\src\unicode" recursive="true"/>
+    <cluster name="gobo_support" location="$GOBO\library\kernel\src\support" recursive="true"/>
+    <!-- <cluster name="gobo_ge" location="$GOBO\library\kernel\src\spec\ge" recursive="true"/> --><cluster name="gol" location="src\" recursive="true"/>
+    <override name="gol_ise" location="ise_src\" recursive="true"/>
+    <cluster name="gol_tests" location="tests\" recursive="true"/><cluster name="testgen" location="TESTGEN\" recursive="true"/>
+  </target>
+</system>

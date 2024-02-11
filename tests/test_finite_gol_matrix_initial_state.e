@@ -1,7 +1,7 @@
 class TEST_FINITE_GOL_MATRIX_INITIAL_STATE
 
-insert
-   EIFFELTEST_TOOLS
+inherit
+   TS_TEST_CASE
 
 create {}
    make
