@@ -8,7 +8,7 @@ create {ANY}
    make
 
 feature {}
-   internal: REVERSIBLE_PAIR[MY_ARRAY2[BOOLEAN]]
+   matrices: REVERSIBLE_PAIR[MY_ARRAY2[BOOLEAN]]
 
 feature {ANY} -- Creation
    make (lines, columns: INTEGER_32)
@@ -19,7 +19,7 @@ feature {ANY} -- Creation
          m.set_all_with(False)
          create n.my_make(lines, columns)
          n.set_all_with(False)
-         create internal.make(m, n)
+         create matrices.make(m, n)
       end
 
    next_state
@@ -44,7 +44,7 @@ feature {ANY} -- Creation
             line := line + 1
          end
 
-         internal.reverse
+         matrices.reverse
       end
 
 feature {ANY}
@@ -99,12 +99,12 @@ feature {ANY} -- cf. ARRAY2
 feature {}
    curr: MY_ARRAY2[BOOLEAN]
       do
-         Result := internal.first
+         Result := matrices.first
       end
 
    next: MY_ARRAY2[BOOLEAN]
       do
-         Result := internal.second
+         Result := matrices.second
       end
 
    live_neighbors_count(line, column: INTEGER_32): INTEGER_32
