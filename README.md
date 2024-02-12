@@ -38,6 +38,25 @@ $ make with_gobo
 $ ./gol_gobo
 ```
 
+## Options
+
+If executed without arguments the program runs with a simple
+built-in pattern.
+
+A file in a [simple plaintext format][plaintext] can be specified
+on the command line:
+
+```
+$ ./gol input.cells
+```
+
+If `-` is passed as filename, pattern is read from the standard
+input:
+
+```
+$ curl https://conwaylife.com/patterns/xwsstagalong.cells | ./gol -
+```
+
 ## Project Structure
 
 - `src/` main cluster, targeting Liberty Eiffel and mostly compilable also by the other compilers
@@ -48,3 +67,4 @@ $ ./gol_gobo
 [isegpl]: https://sourceforge.net/projects/eiffelstudio/
 [gobo]: https://github.com/gobo-eiffel/gobo
 [ise_override]: https://www.eiffel.org/doc/eiffelstudio/Group_Options
+[plaintext]: https://conwaylife.com/wiki/Plaintext
