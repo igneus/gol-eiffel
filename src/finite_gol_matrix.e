@@ -5,7 +5,8 @@ class FINITE_GOL_MATRIX
 inherit GOL_MATRIX
 
 create {ANY}
-   make
+   make,
+   make_from_my_array2
 
 feature {}
    matrices: REVERSIBLE_PAIR[MY_ARRAY2[BOOLEAN]]
@@ -19,9 +20,21 @@ feature {ANY} -- Creation
          m.set_all_with(False)
          create n.make(lines, columns)
          n.set_all_with(False)
+
          create matrices.make(m, n)
       end
 
+   make_from_my_array2 (m: MY_ARRAY2[BOOLEAN])
+      local
+         n: MY_ARRAY2[BOOLEAN]
+      do
+         create n.make(m.line_count, m.column_count)
+         n.set_all_with(False)
+
+         create matrices.make(m, n)
+      end
+
+feature {ANY} -- State transition
    next_state
       local
          line, col: INTEGER
@@ -47,7 +60,7 @@ feature {ANY} -- Creation
          matrices.reverse
       end
 
-feature {ANY}
+feature {ANY} -- Cell state predicates
    is_live(line, column: INTEGER_32): BOOLEAN
       do
          Result := curr.item(line, column)
