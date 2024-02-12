@@ -15,6 +15,9 @@ with_gobo:
 	gec gol_gobo.ecf
 	./gol_gobo.sh
 
+clean:
+	rm *.c *.h *.o *.make *.sh
+
 # Tests
 
 test: test_clean
