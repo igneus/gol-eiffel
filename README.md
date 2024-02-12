@@ -38,7 +38,13 @@ $ make with_gobo
 $ ./gol_gobo
 ```
 
+## Project Structure
+
+- `src/` main cluster, targeting Liberty Eiffel and mostly compilable also by the other compilers
+- `ise_src/` [override cluster][ise_override] overriding some classes in order to make the codebase compilable with ISE and Gobo
+
 [gol]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 [liberty]: http://www.liberty-eiffel.org/
 [isegpl]: https://sourceforge.net/projects/eiffelstudio/
 [gobo]: https://github.com/gobo-eiffel/gobo
+[ise_override]: https://www.eiffel.org/doc/eiffelstudio/Group_Options
