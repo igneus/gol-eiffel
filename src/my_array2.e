@@ -3,14 +3,17 @@
 class MY_ARRAY2[E]
 
 inherit ARRAY2[E]
+      rename
+         make as array2_make
+      end
 
 create {ANY}
-   my_make
+   make
 
 feature {ANY}
-   my_make (lines, columns: INTEGER_32)
+   make (lines, columns: INTEGER_32)
       do
-         make(1, lines, 1, columns)
+         array2_make(1, lines, 1, columns)
       end
 
 end

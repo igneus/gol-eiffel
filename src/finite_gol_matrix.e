@@ -15,9 +15,9 @@ feature {ANY} -- Creation
       local
          m, n: MY_ARRAY2[BOOLEAN]
       do
-         create m.my_make(lines, columns)
+         create m.make(lines, columns)
          m.set_all_with(False)
-         create n.my_make(lines, columns)
+         create n.make(lines, columns)
          n.set_all_with(False)
          create matrices.make(m, n)
       end

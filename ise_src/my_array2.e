@@ -2,14 +2,13 @@ class MY_ARRAY2[E]
 
 inherit ARRAY2[E]
       rename
-         make as my_make,
          height as line_count,
          width as column_count,
          fill_with as set_all_with
       end
 
 create {ANY}
-   my_make
+   make
 
 feature {ANY}
    valid_line(l: INTEGER_32): BOOLEAN
