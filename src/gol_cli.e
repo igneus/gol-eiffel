@@ -1,12 +1,7 @@
 class GOL_CLI
 
 inherit
-   -- I prefer to work with an instance of ARGUMENTS assigned
-   -- to a variable, which is possible in Liberty,
-   -- but doesn't seem to be in ISE, as the class has
-   -- no public constructor and the compiler requires
-   -- an explicit instantiation
-   ARGUMENTS
+   ACCESSING_ARGUMENTS
 
 create {ANY}
    make
