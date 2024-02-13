@@ -7,7 +7,7 @@ fname = 'xxx'
 
 ARGF.each_line do |l|
   if l =~ /^:(.+?):/
-    unless example.empty?
+    if example.find {|i| !i.start_with?('!') }
       File.write fname, example.join("\n")
     end
 
