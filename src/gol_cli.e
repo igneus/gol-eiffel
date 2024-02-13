@@ -1,19 +1,26 @@
 class GOL_CLI
 
+inherit
+   -- I prefer to work with an instance of ARGUMENTS assigned
+   -- to a variable, which is possible in Liberty,
+   -- but doesn't seem to be in ISE, as the class has
+   -- no public constructor and the compiler requires
+   -- an explicit instantiation
+   ARGUMENTS
+
 create {ANY}
    make
 
 feature {}
    matrix: GOL_MATRIX
-   args: ARGUMENTS
 
 feature {ANY}
    make
       local
          i: INTEGER
       do
-         if args.argument_count > 0 then
-            load_matrix(args.argument(1))
+         if argument_count > 0 then
+            load_matrix(argument(1))
          else
             create_default_matrix
          end
@@ -68,18 +75,13 @@ feature {}
    -- https://conwaylife.com/wiki/Plaintext
    load_matrix(path: STRING)
       local
-         fr: INPUT_STREAM
+         fr: INPUT_LINES_ITERATOR
          parsed: MY_ARRAY2[BOOLEAN]
          live: BOOLEAN
          l, c: INTEGER
       do
          create parsed.make(1, 1)
-
-         if path.is_equal("-") then
-            fr := std_input
-         else
-            create {TEXT_FILE_READ} fr.connect_to(path)
-         end
+         create fr.make(path)
 
          if fr.is_connected then
             l := 1
@@ -93,10 +95,10 @@ feature {}
                else
                   if l = 1 then
                      -- set width
-                     parsed.resize(1, 1, 1, fr.last_string.count)
+                     parsed.resize(1, fr.last_string.count)
                   else
                      -- add line
-                     parsed.resize(1, parsed.line_count + 1, 1, parsed.column_count)
+                     parsed.resize(parsed.line_count + 1, parsed.column_count)
                   end
 
                   from
