@@ -139,19 +139,11 @@ feature {}
                until
                   c > column + 1
                loop
-                  -- Eiffel doesn't short-circuit conditional
-                  -- evaluation either, so that
-                  --
-                  -- if curr.valid_column(c) and is_live(l, c) then
-                  --
-                  -- results at runtime in a contract violation
-                  -- when c is not valid
-                  -- and we really have to write the two nested
-                  -- conditionals.
-                  if curr.valid_column(c) and not (l = line and c = column) then
-                     if is_live(l, c) then
-                        r := r + 1
-                     end
+                  if curr.valid_column(c)
+                     and not (l = line and c = column)
+                        and then is_live(l, c)
+                   then
+                      r := r + 1
                   end
 
                   c := c + 1
