@@ -1,38 +1,24 @@
 class REVERSIBLE_PAIR[E]
 
+inherit
+   ARRAY[E]
+      rename
+         make as array_make
+      end
+
 create {ANY}
    make
 
 feature {ANY}
-   first, second: E
-
-feature {}
-   auxiliary: E
-
-feature {ANY}
    make(f, s: E)
       do
-         first := f
-         second := s
-         auxiliary := f
+         array_make(1, 2)
+         put(f, 1)
+         put(s, 2)
       end
 
-   reverse
+   second: E
       do
-         auxiliary := first
-         first := second
-         second := auxiliary
-      end
-
-   put (item: E; index: INTEGER)
-      do
-         inspect index
-         when 1 then
-            first := item
-         when 2 then
-            second := item
-         else
-            -- TODO raise exception
-         end
+         Result := item(2)
       end
 end
