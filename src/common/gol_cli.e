@@ -1,7 +1,7 @@
 class GOL_CLI
 
 inherit
-   ACCESSING_ARGUMENTS
+   MY_ACCESSING_ARGUMENTS
 
 create {ANY}
    make

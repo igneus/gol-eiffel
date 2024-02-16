@@ -1,0 +1,7 @@
+class MY_ACCESSING_ARGUMENTS
+
+inherit
+   ACCESSING_ARGUMENTS
+   ARGUMENTS
+
+end
