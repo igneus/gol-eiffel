@@ -1,4 +1,7 @@
-class SLEEP_TIMER
+class MY_SLEEP_TIMER
+
+inherit
+   SLEEP_TIMER
 
 insert
    UNISTD_EXTERNALS
@@ -9,15 +12,7 @@ insert
 create {ANY}
    make
 
-feature {}
-   sleep_length: NATURAL
-
 feature {ANY}
-   make (microseconds: NATURAL)
-      do
-         sleep_length := microseconds
-      end
-
    sleep
       local
          sleep_result: INTEGER

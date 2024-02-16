@@ -25,7 +25,7 @@ feature {ANY}
          -- literal
          --   `500000.to_natural_32`
          -- for ISE the parentheses are required
-         create sleep_timer.make((250000).to_natural_32)
+         create {MY_SLEEP_TIMER} sleep_timer.make((250000).to_natural_32)
 
          from
             i := 0
