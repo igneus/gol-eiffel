@@ -13,12 +13,19 @@ feature {ANY}
    make
       local
          i: INTEGER
+         sleep_timer: SLEEP_TIMER
       do
          if argument_count > 0 then
             load_matrix(argument(1))
          else
             create_default_matrix
          end
+
+         -- Liberty allows calling the method on the bare integer
+         -- literal
+         --   `500000.to_natural_32`
+         -- for ISE the parentheses are required
+         create sleep_timer.make((250000).to_natural_32)
 
          from
             i := 0
@@ -33,6 +40,7 @@ feature {ANY}
 
             matrix.next_state
             i := i + 1
+            sleep_timer.sleep
          end
       end
 

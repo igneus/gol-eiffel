@@ -11,6 +11,8 @@ default
 cluster
   "./src"
   "${path_liberty_core}/loadpath.se"
+  "${path_liberty_extra}/common/loadpath.se"
+  "${path_liberty_extra}/posix/loadpath.se"
 
 generate
   clean(yes);
