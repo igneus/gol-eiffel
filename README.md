@@ -28,8 +28,8 @@ $ make with_ise
 $ ./EIFGENs/gol/W_code/gol
 ```
 
-(Or open the project in EiffelStudio and use the UI to compile and run
-the program. `gol.ecf` is the relevant EiffelStudio project file.)
+Or open the project in EiffelStudio and use the UI to compile and run
+the program. `gol.ecf` is the relevant EiffelStudio project file.
 
 ### Gobo
 
