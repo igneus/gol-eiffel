@@ -1,8 +1,5 @@
 class GOL_CLI
 
-inherit
-   MY_ACCESSING_ARGUMENTS
-
 create {ANY}
    make
 
@@ -14,9 +11,12 @@ feature {ANY}
       local
          i: INTEGER
          sleep_timer: SLEEP_TIMER
+         args: ARGUMENTS_PROVIDER
       do
-         if argument_count > 0 then
-            load_matrix(argument(1))
+         create {MY_ARGUMENTS_PROVIDER} args
+
+         if args.argument_count > 0 then
+            load_matrix(args.argument(1))
          else
             create_default_matrix
          end

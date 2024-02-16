@@ -1,0 +1,7 @@
+class MY_ARGUMENTS_PROVIDER
+
+inherit
+   ARGUMENTS_PROVIDER
+   ARGUMENTS
+
+end

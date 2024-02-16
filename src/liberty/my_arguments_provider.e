@@ -1,9 +1,9 @@
 -- Because the class ARGUMENTS must be inserted in Liberty
 -- and inherited in ISE.
-class MY_ACCESSING_ARGUMENTS
+class MY_ARGUMENTS_PROVIDER
 
 inherit
-   ACCESSING_ARGUMENTS
+   ARGUMENTS_PROVIDER
 
 insert
    ARGUMENTS

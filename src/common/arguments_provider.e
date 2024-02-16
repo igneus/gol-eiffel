@@ -1,4 +1,4 @@
-deferred class ACCESSING_ARGUMENTS
+deferred class ARGUMENTS_PROVIDER
 
 feature {ANY}
    argument (i: INTEGER): STRING
