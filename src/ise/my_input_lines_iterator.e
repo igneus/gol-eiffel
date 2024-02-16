@@ -1,4 +1,7 @@
-class INPUT_LINES_ITERATOR
+class MY_INPUT_LINES_ITERATOR
+
+inherit
+   INPUT_LINES_ITERATOR
 
 create {ANY}
    make

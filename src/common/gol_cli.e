@@ -84,7 +84,7 @@ feature {}
          l, c: INTEGER
       do
          create parsed.make(1, 1)
-         create fr.make(path)
+         create {MY_INPUT_LINES_ITERATOR} fr.make(path)
 
          if fr.is_connected then
             l := 1

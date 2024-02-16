@@ -2,7 +2,10 @@
 -- and allowing to read lines either from a file or from stdin.
 -- Required because the class hierarchies and interfaces
 -- for file and stdin reading differ between Liberty and ISE.
-class INPUT_LINES_ITERATOR
+class MY_INPUT_LINES_ITERATOR
+
+inherit
+   INPUT_LINES_ITERATOR
 
 create {ANY}
    make
