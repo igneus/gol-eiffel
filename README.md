@@ -59,8 +59,11 @@ $ curl https://conwaylife.com/patterns/xwsstagalong.cells | ./gol -
 
 ## Project Structure
 
-- `src/` main cluster, targeting Liberty Eiffel and mostly compilable also by the other compilers
-- `ise_src/` [override cluster][ise_override] overriding some classes in order to make the codebase compilable with ISE and Gobo
+- `src/common` classes compilable by all supported compilers
+  (primary target is Liberty Eiffel, the other compilers
+  may emit a large amount of warnings)
+- `src/liberty` classes specific to Liberty Eiffel
+- `src/ise` classes specific to ISE and Gobo
 
 [gol]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 [liberty]: http://www.liberty-eiffel.org/

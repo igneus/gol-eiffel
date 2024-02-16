@@ -16,7 +16,13 @@ edited to build with gec 22.01
 			<void_safety use="all"/>
 		</capability>
 		<library name="base" location="$GOBO\library\free_elks\library.ecf"/>
-		<cluster name="gol" location="src\" recursive="true"/>
-		<override name="gol_ise" location="ise_src\" recursive="true"/>
+		<cluster name="gol-common" location="src\common\" recursive="true">
+			<option syntax="obsolete">
+			</option>
+		</cluster>
+		<cluster name="gol-ise" location="src\ise\" recursive="true">
+			<option syntax="standard">
+			</option>
+		</cluster>
 	</target>
 </system>

@@ -9,7 +9,8 @@ default
   collect (no)
 
 cluster
-  "./src"
+  "./src/common"
+  "./src/liberty"
   "${path_liberty_core}/loadpath.se"
   "${path_liberty_extra}/common/loadpath.se"
   "${path_liberty_extra}/posix/loadpath.se"
