@@ -1,4 +1,7 @@
-class REVERSIBLE_PAIR[E]
+class MY_REVERSIBLE_PAIR[E]
+
+inherit
+   REVERSIBLE_PAIR[E]
 
 create {ANY}
    make
