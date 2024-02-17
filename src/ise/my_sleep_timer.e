@@ -15,6 +15,6 @@ feature {ANY}
       do
          -- TODO: in Gobo this seems to always sleep for at least
          -- a second, investigate why
-         nano_sleep(sleep_length)
+         nano_sleep(sleep_length * 1000)
       end
 end
