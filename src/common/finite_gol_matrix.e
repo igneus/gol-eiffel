@@ -21,7 +21,7 @@ feature {ANY} -- Creation
          create {MY_ARRAY2[BOOLEAN]} n.make(lines, columns)
          n.set_all_with(False)
 
-         create {MY_REVERSIBLE_PAIR[SIMPLE_MATRIX[BOOLEAN]]} matrices.make(m, n)
+         create matrices.make(m, n)
       end
 
    make_from_my_array2 (m: SIMPLE_MATRIX[BOOLEAN])
@@ -31,7 +31,7 @@ feature {ANY} -- Creation
          create {MY_ARRAY2[BOOLEAN]} n.make(m.line_count, m.column_count)
          n.set_all_with(False)
 
-         create {MY_REVERSIBLE_PAIR[SIMPLE_MATRIX[BOOLEAN]]} matrices.make(m, n)
+         create matrices.make(m, n)
       end
 
 feature {ANY} -- State transition
