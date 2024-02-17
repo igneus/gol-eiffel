@@ -1,6 +1,14 @@
 class MY_ARRAY2[E]
 
-inherit ARRAY2[E]
+inherit
+   SIMPLE_MATRIX[E]
+      undefine
+         -- concrete features inherited from ANY colliding with
+         -- those inherited below from ARRAY2
+         copy,
+         is_equal
+      end
+   ARRAY2[E]
       rename
          height as line_count,
          width as column_count,

@@ -9,26 +9,26 @@ create {ANY}
    make_from_my_array2
 
 feature {}
-   matrices: REVERSIBLE_PAIR[MY_ARRAY2[BOOLEAN]]
+   matrices: REVERSIBLE_PAIR[SIMPLE_MATRIX[BOOLEAN]]
 
 feature {ANY} -- Creation
    make (lines, columns: INTEGER_32)
       local
          m, n: MY_ARRAY2[BOOLEAN]
       do
-         create m.make(lines, columns)
+         create {MY_ARRAY2[BOOLEAN]} m.make(lines, columns)
          m.set_all_with(False)
-         create n.make(lines, columns)
+         create {MY_ARRAY2[BOOLEAN]} n.make(lines, columns)
          n.set_all_with(False)
 
          create matrices.make(m, n)
       end
 
-   make_from_my_array2 (m: MY_ARRAY2[BOOLEAN])
+   make_from_my_array2 (m: SIMPLE_MATRIX[BOOLEAN])
       local
-         n: MY_ARRAY2[BOOLEAN]
+         n: SIMPLE_MATRIX[BOOLEAN]
       do
-         create n.make(m.line_count, m.column_count)
+         create {MY_ARRAY2[BOOLEAN]} n.make(m.line_count, m.column_count)
          n.set_all_with(False)
 
          create matrices.make(m, n)
@@ -110,12 +110,12 @@ feature {ANY} -- cf. ARRAY2
       end
 
 feature {}
-   curr: MY_ARRAY2[BOOLEAN]
+   curr: SIMPLE_MATRIX[BOOLEAN]
       do
          Result := matrices.first
       end
 
-   next: MY_ARRAY2[BOOLEAN]
+   next: SIMPLE_MATRIX[BOOLEAN]
       do
          Result := matrices.second
       end

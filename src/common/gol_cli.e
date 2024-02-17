@@ -79,11 +79,11 @@ feature {}
    load_matrix(path: STRING)
       local
          fr: INPUT_LINES_ITERATOR
-         parsed: MY_ARRAY2[BOOLEAN]
+         parsed: SIMPLE_MATRIX[BOOLEAN]
          live: BOOLEAN
          l, c: INTEGER
       do
-         create parsed.make(1, 1)
+         create {MY_ARRAY2[BOOLEAN]} parsed.make(1, 1)
          create {MY_INPUT_LINES_ITERATOR} fr.make(path)
 
          if fr.is_connected then
