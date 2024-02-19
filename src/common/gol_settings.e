@@ -12,11 +12,19 @@ feature {ANY}
       deferred
       end
 
+   print_usage
+      deferred
+      end
+
    has_input_file: BOOLEAN
       deferred
       end
 
    input_file: STRING
+      deferred
+      end
+
+   is_help: BOOLEAN
       deferred
       end
 

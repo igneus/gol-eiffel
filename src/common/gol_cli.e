@@ -15,9 +15,13 @@ feature {ANY}
          create {MY_GOL_SETTINGS} settings.make
          settings.collect
          if not settings.is_valid then
-            io.put_string("Settings invalid")
-            io.put_new_line
-            -- TODO exit
+            io.put_string("Settings invalid%N")
+            (create {EXCEPTIONS}).die(1)
+         end
+
+         if settings.is_help then
+            settings.print_usage; -- semicolon required, lest ISE considers the parentheses on the following line an argument list for the method call
+            (create {EXCEPTIONS}).die(0)
          end
 
          if settings.has_input_file then

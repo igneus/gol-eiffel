@@ -23,6 +23,11 @@ feature {ANY}
          Result := True
       end
 
+   print_usage
+      do
+         -- TODO: fake implementation
+      end
+
    has_input_file: BOOLEAN
       do
          Result := args.argument_count > 0
@@ -33,5 +38,11 @@ feature {ANY}
          has_input_file
       do
          Result := args.argument(1)
+      end
+
+   is_help: BOOLEAN
+      once
+         -- TODO: fake implementation
+         Result := False
       end
 end
