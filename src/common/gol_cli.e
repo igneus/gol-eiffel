@@ -9,9 +9,8 @@ feature {}
 feature {ANY}
    make
       local
-         i: INTEGER
-         sleep_timer: SLEEP_TIMER
          args: ARGUMENTS_PROVIDER
+         presenter: GOL_PRESENTER
       do
          create {MY_ARGUMENTS_PROVIDER} args
 
@@ -21,57 +20,8 @@ feature {ANY}
             create_default_matrix
          end
 
-         -- Liberty allows calling the method on the bare integer
-         -- literal
-         --   `500000.to_natural_32`
-         -- for ISE the parentheses are required
-         create {MY_SLEEP_TIMER} sleep_timer.make((250000).to_natural_32)
-
-         from
-            i := 0
-         until
-            i >= 30
-         loop
-            io.put_integer(i)
-            io.put_new_line
-
-            print_matrix
-            io.put_new_line
-
-            matrix.next_state
-            i := i + 1
-            sleep_timer.sleep
-         end
-      end
-
-feature {}
-   print_matrix
-      local
-         line, col: INTEGER
-      do
-         from
-            line := 1
-         until
-            line > matrix.line_count
-         loop
-            from
-               col := 1
-            until
-               col > matrix.column_count
-            loop
-               if matrix.is_live(line, col) then
-                  io.put_character('X')
-               else
-                  io.put_character('-')
-               end
-
-               col := col + 1
-            end
-
-            io.put_new_line
-
-            line := line + 1
-         end
+         create {CONSOLE_PRESENTER} presenter
+         presenter.present(matrix)
       end
 
    -- load matrix from a file in the plaintext file format
