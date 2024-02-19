@@ -9,13 +9,19 @@ feature {}
 feature {ANY}
    make
       local
-         args: ARGUMENTS_PROVIDER
+         settings: GOL_SETTINGS
          presenter: GOL_PRESENTER
       do
-         create {MY_ARGUMENTS_PROVIDER} args
+         create {MY_GOL_SETTINGS} settings.make
+         settings.collect
+         if not settings.is_valid then
+            io.put_string("Settings invalid")
+            io.put_new_line
+            -- TODO exit
+         end
 
-         if args.argument_count > 0 then
-            load_matrix(args.argument(1))
+         if settings.has_input_file then
+            load_matrix(settings.input_file)
          else
             create_default_matrix
          end
