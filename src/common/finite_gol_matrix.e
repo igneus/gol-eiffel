@@ -6,7 +6,7 @@ inherit GOL_MATRIX
 
 create {ANY}
    make,
-   make_from_my_array2
+   make_from_simple_matrix
 
 feature {}
    matrices: REVERSIBLE_PAIR[SIMPLE_MATRIX[BOOLEAN]]
@@ -14,21 +14,21 @@ feature {}
 feature {ANY} -- Creation
    make (lines, columns: INTEGER_32)
       local
-         m, n: MY_ARRAY2[BOOLEAN]
+         m, n: MY_SIMPLE_MATRIX[BOOLEAN]
       do
-         create {MY_ARRAY2[BOOLEAN]} m.make(lines, columns)
+         create {MY_SIMPLE_MATRIX[BOOLEAN]} m.make(lines, columns)
          m.set_all_with(False)
-         create {MY_ARRAY2[BOOLEAN]} n.make(lines, columns)
+         create {MY_SIMPLE_MATRIX[BOOLEAN]} n.make(lines, columns)
          n.set_all_with(False)
 
          create matrices.make(m, n)
       end
 
-   make_from_my_array2 (m: SIMPLE_MATRIX[BOOLEAN])
+   make_from_simple_matrix (m: SIMPLE_MATRIX[BOOLEAN])
       local
          n: SIMPLE_MATRIX[BOOLEAN]
       do
-         create {MY_ARRAY2[BOOLEAN]} n.make(m.line_count, m.column_count)
+         create {MY_SIMPLE_MATRIX[BOOLEAN]} n.make(m.line_count, m.column_count)
          n.set_all_with(False)
 
          create matrices.make(m, n)

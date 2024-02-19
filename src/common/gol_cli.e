@@ -83,7 +83,7 @@ feature {}
          live: BOOLEAN
          l, c: INTEGER
       do
-         create {MY_ARRAY2[BOOLEAN]} parsed.make(1, 1)
+         create {MY_SIMPLE_MATRIX[BOOLEAN]} parsed.make(1, 1)
          create {MY_INPUT_LINES_ITERATOR} fr.make(path)
 
          if fr.is_connected then
@@ -128,7 +128,7 @@ feature {}
             io.put_string("Cannot read file %"" + path + "%".%N")
          end
 
-         create {FINITE_GOL_MATRIX} matrix.make_from_my_array2(parsed)
+         create {FINITE_GOL_MATRIX} matrix.make_from_simple_matrix(parsed)
       end
 
    create_default_matrix

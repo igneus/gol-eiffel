@@ -1,4 +1,4 @@
-class MY_ARRAY2[E]
+class MY_SIMPLE_MATRIX[E]
 
 inherit
    SIMPLE_MATRIX[E]

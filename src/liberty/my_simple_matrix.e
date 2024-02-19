@@ -1,6 +1,6 @@
 -- Compatibility layer bridging interface differences between
 -- Liberty standard library and ELKS - see the ISE-specific version.
-class MY_ARRAY2[E]
+class MY_SIMPLE_MATRIX[E]
 
 inherit
    SIMPLE_MATRIX[E]
