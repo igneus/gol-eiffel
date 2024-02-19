@@ -17,7 +17,7 @@ feature {ANY}
          create {MY_SLEEP_TIMER} sleep_timer.make((250000).to_natural_32)
 
          from
-            i := 0
+            i := 1
          until
             i >= 30
          loop
