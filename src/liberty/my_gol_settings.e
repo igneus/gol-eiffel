@@ -21,6 +21,7 @@ feature {ANY}
             factory.no_parameters or
             (opt_help and opt_generations and opt_sleep and arg_input_file)
                          )
+         args.set_helper(agent help_handler(?))
       end
 
    collect
@@ -68,6 +69,13 @@ feature {ANY}
          else
             Result := Precursor
          end
+      end
+
+   -- callback method for COMMAND_LINE_ARGUMENTS
+   help_handler (passed_args: COMMAND_LINE_ARGUMENTS)
+      do
+         std_error.put_string("Default --help handler kicked in, although it's not expected to!%N")
+         (create {EXCEPTIONS}).die(1)
       end
 
 feature {}
