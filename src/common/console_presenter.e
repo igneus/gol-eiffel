@@ -26,6 +26,10 @@ feature {ANY}
          until
             i > max_generations
          loop
+            if i > 1 then
+               sleep_timer.sleep
+            end
+
             io.put_integer(i)
             io.put_new_line
 
@@ -34,7 +38,6 @@ feature {ANY}
 
             matrix.next_state
             i := i + 1
-            sleep_timer.sleep
          end
       end
 
