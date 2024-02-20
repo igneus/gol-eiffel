@@ -57,6 +57,9 @@ input:
 $ curl https://conwaylife.com/patterns/xwsstagalong.cells | ./gol -
 ```
 
+(Only) the Liberty Eiffel implementation supports multiple options
+modifying the program's behavior. Run `gol -h` to learn more.
+
 ## Project Structure
 
 - `src/common` classes compilable by all supported compilers
