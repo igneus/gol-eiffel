@@ -8,9 +8,10 @@ create {ANY}
 
 feature {ANY}
 
-   make (generations: INTEGER)
+   make (generations: INTEGER; sleep: INTEGER)
       do
          max_generations := generations
+         sleep_milliseconds := sleep
       end
 
    present (matrix: GOL_MATRIX)
@@ -18,11 +19,7 @@ feature {ANY}
          i: INTEGER
          sleep_timer: SLEEP_TIMER
       do
-         -- Liberty allows calling the method on the bare integer
-         -- literal
-         --   `500000.to_natural_32`
-         -- for ISE the parentheses are required
-         create {MY_SLEEP_TIMER} sleep_timer.make((250000).to_natural_32)
+         create {MY_SLEEP_TIMER} sleep_timer.make((sleep_milliseconds * 1000).to_natural_32)
 
          from
             i := 1
@@ -43,7 +40,7 @@ feature {ANY}
 
 feature {}
 
-   max_generations: INTEGER
+   max_generations, sleep_milliseconds: INTEGER
 
    print_matrix(matrix: GOL_MATRIX)
       local

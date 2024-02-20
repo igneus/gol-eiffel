@@ -34,4 +34,10 @@ feature {ANY}
          Result := 30
       end
 
+   -- Delay between generations in milliseconds
+   sleep: INTEGER
+      once
+         Result := 250
+      end
+
 end

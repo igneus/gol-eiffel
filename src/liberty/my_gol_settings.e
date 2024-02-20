@@ -2,7 +2,8 @@ class MY_GOL_SETTINGS
 
 inherit GOL_SETTINGS
       redefine
-         max_generations
+         max_generations,
+         sleep
       end
 
 create {ANY}
@@ -18,7 +19,7 @@ feature {ANY}
          create factory
          create args.make(
             factory.no_parameters or
-            (opt_help and opt_generations and arg_input_file)
+            (opt_help and opt_generations and opt_sleep and arg_input_file)
                          )
       end
 
@@ -60,6 +61,15 @@ feature {ANY}
          end
       end
 
+   sleep: INTEGER
+      once
+         if opt_sleep.is_set then
+            Result := opt_sleep.item
+         else
+            Result := Precursor
+         end
+      end
+
 feature {}
    arg_input_file: COMMAND_LINE_TYPED_ARGUMENT[FIXED_STRING]
       once
@@ -74,6 +84,11 @@ feature {}
    opt_generations: COMMAND_LINE_TYPED_ARGUMENT[INTEGER_32]
       once
          Result := factory.option_integer("g", "generations", "generations", "How many generations to show")
+      end
+
+   opt_sleep: COMMAND_LINE_TYPED_ARGUMENT[INTEGER_32]
+      once
+         Result := factory.option_integer("s", "sleep", "milliseconds", "Delay between generations")
       end
 
 end
