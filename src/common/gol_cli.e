@@ -30,7 +30,7 @@ feature {ANY}
             create_default_matrix
          end
 
-         create {CONSOLE_PRESENTER} presenter
+         create {CONSOLE_PRESENTER} presenter.make(settings.max_generations)
          presenter.present(matrix)
       end
 

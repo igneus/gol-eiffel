@@ -1,6 +1,9 @@
 class MY_GOL_SETTINGS
 
 inherit GOL_SETTINGS
+      redefine
+         max_generations
+      end
 
 create {ANY}
    make
@@ -13,7 +16,10 @@ feature {ANY}
    make
       do
          create factory
-         create args.make(opt_help or arg_input_file)
+         create args.make(
+            factory.no_parameters or
+            (opt_help and opt_generations and arg_input_file)
+                         )
       end
 
    collect
@@ -45,6 +51,15 @@ feature {ANY}
          Result := opt_help.is_set
       end
 
+   max_generations: INTEGER
+      once
+         if opt_generations.is_set then
+            Result := opt_generations.item
+         else
+            Result := Precursor
+         end
+      end
+
 feature {}
    arg_input_file: COMMAND_LINE_TYPED_ARGUMENT[FIXED_STRING]
       once
@@ -53,7 +68,12 @@ feature {}
 
    opt_help: COMMAND_LINE_TYPED_ARGUMENT[BOOLEAN]
       once
-         Result := factory.option_boolean("h", "help", "Print this help and exit").as_optional
+         Result := factory.option_boolean("h", "help", "Print this help and exit")
+      end
+
+   opt_generations: COMMAND_LINE_TYPED_ARGUMENT[INTEGER_32]
+      once
+         Result := factory.option_integer("g", "generations", "generations", "How many generations to show")
       end
 
 end

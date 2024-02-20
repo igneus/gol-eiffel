@@ -28,4 +28,10 @@ feature {ANY}
       deferred
       end
 
+   -- How many generations to show
+   max_generations: INTEGER
+      once
+         Result := 30
+      end
+
 end

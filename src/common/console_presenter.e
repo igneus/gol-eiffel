@@ -3,7 +3,15 @@ class CONSOLE_PRESENTER
 
 inherit GOL_PRESENTER
 
+create {ANY}
+   make
+
 feature {ANY}
+
+   make (generations: INTEGER)
+      do
+         max_generations := generations
+      end
 
    present (matrix: GOL_MATRIX)
       local
@@ -19,7 +27,7 @@ feature {ANY}
          from
             i := 1
          until
-            i >= 30
+            i > max_generations
          loop
             io.put_integer(i)
             io.put_new_line
@@ -34,6 +42,8 @@ feature {ANY}
       end
 
 feature {}
+
+   max_generations: INTEGER
 
    print_matrix(matrix: GOL_MATRIX)
       local
